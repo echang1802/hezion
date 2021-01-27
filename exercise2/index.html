@@ -28,6 +28,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Services</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#tryit">Try it</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Contact</a></li>
                     </ul>
                 </div>
@@ -106,6 +107,25 @@
                 </div>
             </div>
         </section>
+        <section class="try-it" id="tryit">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 mx-auto">
+                      <h2 class="text-white mb-4">Try it!</h2>
+                      <p class="popup" onclick="myFunction()">Click here to try a time journey!
+                        <span class="popuptext" id="myPopup">You are losing time, rigth now!</span>
+                        <script type="text/javascript">
+                          // When the user clicks on div, open the popup
+                          function myFunction() {
+                            var popup = document.getElementById("myPopup");
+                            popup.classList.toggle("show");
+                          }
+                        </script>
+                  </p>
+              </div>
+            </div>
+          </div>
+        </section>
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container">
@@ -113,9 +133,19 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Contact us!</h2>
-                        <form class="form-inline d-flex">
+                        <form class="form-inline d-flex" id = "form1">
                             <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                            <button class="btn btn-primary mx-auto" type="submit">Contact</button>
+                            <button class="btn btn-primary mx-auto" type="submit" id = "sendMail">Contact</button>
+                            <script>
+                              $(document).ready(function() {
+                                $('#sendMail').click(function() {
+                                    $('#form1').attr('action',
+                                                   'mailto:eloy.chang.182@gmail.com?subject=' +
+                                                   'Time Sculptor' + '&body=' + $('#inputEmail').val());
+                                    $('#form1').submit();
+                                });
+                              });
+                            </script>
                         </form>
                     </div>
                 </div>
